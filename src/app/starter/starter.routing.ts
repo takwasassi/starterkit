@@ -1,4 +1,8 @@
 import { Routes } from '@angular/router';
+import { EndpointComponent } from '../endpoint/endpoint.component';
+import { GetComponent } from '../endpoint/get/get.component';
+import { UserComponent } from '../user/user.component';
+
 
 import { StarterComponent } from './starter.component';
 
@@ -13,5 +17,19 @@ export const StarterRoutes: Routes = [
                 { title: 'Starter Page' }
             ]
         }
-    }
+    },
+    {
+    path: 'endpoint',
+    component: EndpointComponent
+   },
+   {
+    path: 'getendpoint',
+    component: GetComponent
+   },
+   {
+    path: 'user',
+    component: UserComponent
+   },
+  
+  
 ];

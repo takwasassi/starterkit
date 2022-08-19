@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
@@ -32,6 +32,10 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoginComponent } from './login/login.component';
 import { MyserviceService } from './service/myservice.service';
+import { EndpointComponent } from './endpoint/endpoint.component';
+import { GetComponent } from './endpoint/get/get.component';
+import { UserComponent } from './user/user.component';
+
 
 
 
@@ -57,6 +61,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HorizontalAppHeaderComponent,
     HorizontalAppSidebarComponent,
     LoginComponent,
+    EndpointComponent,
+    GetComponent,
+    UserComponent,
     
     
   ],
@@ -65,6 +72,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BrowserAnimationsModule,
     DemoMaterialModule,
     FormsModule,
+    ReactiveFormsModule,
+
     FlexLayoutModule,
     PerfectScrollbarModule,
     HttpClientModule,

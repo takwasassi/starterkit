@@ -3,7 +3,7 @@
        
         <mat-card class="m-t-10">
         <mat-card-content>
-        <form id="loginform" #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
+        <form id="loginform" [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="text-center">
                 <img alt="homepage" src="assets/images/logo1.PNG">
                
@@ -13,13 +13,13 @@
                 <!-- col full-->
                 <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
                     <mat-form-field>
-                    <input matInput placeholder="Username" required="" name="email" ngModel >
+                    <input matInput placeholder="Username" required=""  formControlName="username" >
                     </mat-form-field>
                 </div>
                 <!-- col full-->
                 <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
                     <mat-form-field>
-                    <input matInput type="password" placeholder="Password" required="" name="password" ngModel>
+                    <input matInput type="password" placeholder="Password" required=""  formControlName="password">
                     </mat-form-field>
                 </div>
                 <!-- col half-->

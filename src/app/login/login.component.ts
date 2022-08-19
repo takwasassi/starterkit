@@ -4,6 +4,8 @@ import {  Router } from '@angular/router';
 
 import {
   
+  FormControl,
+  FormGroup,
   NgForm
 } from '@angular/forms';
 import { MyserviceService } from '../service/myservice.service';
@@ -19,20 +21,24 @@ export class LoginComponent implements OnInit {
   msg = '';
   constructor(private service: MyserviceService, private routes: Router) { }
 
-  login(loginForm: NgForm) {
-   this.service.checkusernameandpassword(loginForm.value).subscribe(
+  login() {
+   this.service.checkusernameandpassword(this.loginForm.value).subscribe(
       (response: any) => {
         
-        localStorage.setItem('jwtToken', response.token);
+       // localStorage.setItem('jwtToken', response.token);
        
           this.routes.navigate(['/starter']);
-       
+          console.log(response);
       },
       (error) => {
         console.log(error);
       }
     );
   }
+  loginForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
 
   ngOnInit() {}
 }

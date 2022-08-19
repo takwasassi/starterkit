@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #1B74F0;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+
+
+<table id="customers">
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Date Creation</th>
+    <th>Date Modification</th>
+  </tr>
+  <tr *ngFor="let user of user">
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.createdAt}}</td>
+    <td>{{user.updatedAt}}</td>
+  </tr>
+ 
+</table>
+
+</body>
+</html>

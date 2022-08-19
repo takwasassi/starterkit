@@ -6,10 +6,32 @@ export class MyserviceService {
 
   constructor(private user:HttpClient) { }
   requestHeader = new HttpHeaders({ 'No-Auth': 'True' });
-  checkusernameandpassword(loginData:any) {
-    return this.user.post("http://localhost:3000/users/login",loginData, {
-    headers: this.requestHeader,
-  });
+
+  api: string= 'http://localhost:8090';
+
+  checkusernameandpassword(userlogin?:FormData) {
+    return this.user.post<Object>(this.api+"/api/auth/signin",userlogin
+  );
   }
+
+  postEndpoint(postend?:FormData) {
+    return this.user.post<Object>(this.api+"/api/endpoints/",postend
+  );
+  }
+
+  
+  getEndpoint() {
+    return this.user.get<any>(this.api+"/api/endpoints"
+  );
+  }
+  listUser() {
+    return this.user.get<any>(this.api+"/api/test/all"
+  );
+  }
+
+  
+
+
+
   }
 
