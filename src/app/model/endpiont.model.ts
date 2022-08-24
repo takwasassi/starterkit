@@ -1,7 +1,8 @@
 export class Endpoint {
-    path:string='';
-    method: string = ''; 
-    status_code: number = 0; 
+    id?:number;
+    path?:string;
+    method?: string; 
+    status_code?: number ; 
    
 
 

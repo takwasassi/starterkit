@@ -6,7 +6,7 @@ import { MyserviceService } from 'src/app/service/myservice.service';
 @Component({
   selector: 'app-get',
   templateUrl: './get.component.html',
-  styleUrls: ['./get.component.scss'],
+  styleUrls: ['./get.component.css'],
     providers: [MyserviceService]
 })
 export class GetComponent implements OnInit {
@@ -26,6 +26,18 @@ export class GetComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  deleteEndpoint(id?: number){
+    this.service.deleteEndpointById(id).subscribe();
+    //this.routes.navigate(['/starter/getendpoint']);
+    window.location.reload();
+  }
+  updateEndpoint(id? : Number){
+    console.log("id = ", id);
+    this.service.getid(id);
+    this.routes.navigate(['/starter/upd-endpoint']);
+
   }
 
 }

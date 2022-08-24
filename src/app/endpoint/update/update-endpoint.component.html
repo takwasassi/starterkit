@@ -1,0 +1,19 @@
+<div> <h2 class="text-center">Update an Endpoint</h2></div>
+
+<div>
+  <form [formGroup]="putend"  >
+    <label for="fname">Path</label>
+    <input type="text" id="path" name="path" placeholder="Your path.." formControlName="path">
+
+    <label for="lname">Method</label>
+    <input type="text" id="method" name="method" placeholder="Your method.." formControlName="method">
+    <label for="country">Status code</label>
+    <input type="text" id="status_code" name="status_code" placeholder="status code.."formControlName="status_code">
+  
+    <input type="submit" value="Submit" (click)="updateEndPoint(endpoint.id)">
+  </form>
+</div>
+
+
+
+

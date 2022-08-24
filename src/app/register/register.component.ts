@@ -10,34 +10,33 @@ import {
 } from '@angular/forms';
 import { MyserviceService } from '../service/myservice.service';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
   providers: [MyserviceService]
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   msg = '';
   constructor(private service: MyserviceService, private routes: Router) { }
 
-  login() {
-   this.service.checkusernameandpassword(this.loginForm.value).subscribe(
+  register() {
+   this.service.register(this.registerForm.value).subscribe(
       (response: any) => {
         
-       localStorage.setItem('jwtToken', response.accessToken);
+       // localStorage.setItem('jwtToken', response.token);
        
-          this.routes.navigate(['/starter']);
+          this.routes.navigate(['/login']);
           console.log(response);
       },
       (error) => {
         console.log(error);
-
       }
     );
   }
-  loginForm = new FormGroup({
+  registerForm = new FormGroup({
     username: new FormControl(''),
+    email: new FormControl(''),
     password: new FormControl(''),
   });
 

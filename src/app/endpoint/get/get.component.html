@@ -20,10 +20,32 @@
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
+  text-align: center;
   background-color: #1B74F0;
   color: white;
 }
+
+#customers #button1 {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+#customers #button2 {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
 </style>
 </head>
 <body>
@@ -35,11 +57,15 @@
     <th>Path</th>
     <th>Method</th>
     <th>Status Code</th>
+    <th>Update</th>
+    <th>Delete</th>
   </tr>
   <tr *ngFor="let endpoint of endpoint">
     <td>{{endpoint.path}}</td>
     <td>{{endpoint.method}}</td>
     <td>{{endpoint.status_code}}</td>
+    <td align="center"><button id="button1"  (click)="updateEndpoint(endpoint.id)">Update</button></td>
+    <td align="center"><button id="button2" (click)="deleteEndpoint(endpoint.id)">Delete</button></td>
   </tr>
  
 </table>

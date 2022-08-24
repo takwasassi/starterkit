@@ -32,9 +32,12 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoginComponent } from './login/login.component';
 import { MyserviceService } from './service/myservice.service';
-import { EndpointComponent } from './endpoint/endpoint.component';
 import { GetComponent } from './endpoint/get/get.component';
 import { UserComponent } from './user/user.component';
+import { RegisterComponent } from './register/register.component';
+import { UpdateEndpointComponent } from './endpoint/update/update-endpoint.component';
+import { EndpointComponent } from './endpoint/post/endpoint.component';
+
 
 
 
@@ -64,6 +67,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     EndpointComponent,
     GetComponent,
     UserComponent,
+    RegisterComponent,
+    UpdateEndpointComponent,
     
     
   ],

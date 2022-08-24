@@ -3,7 +3,7 @@
        
         <mat-card class="m-t-10">
         <mat-card-content>
-        <form id="loginform" [formGroup]="loginForm" (ngSubmit)="login()">
+        <form id="registerForm" [formGroup]="registerForm" (ngSubmit)="register()">
             <div class="text-center">
                 <img alt="homepage" src="assets/images/logo1.PNG">
                
@@ -13,7 +13,13 @@
                 <!-- col full-->
                 <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
                     <mat-form-field>
-                    <input matInput placeholder="Username" required=""  formControlName="username" >
+                    <input matInput placeholder="username" required=""  formControlName="username" >
+                    </mat-form-field>
+                </div>
+                <!-- col full-->
+                <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                    <mat-form-field>
+                    <input matInput placeholder="email" required=""  formControlName="email" >
                     </mat-form-field>
                 </div>
                 <!-- col full-->
@@ -27,17 +33,15 @@
                     <mat-checkbox color="warn">Remember me</mat-checkbox>
                 </div>
                 <!-- col half-->
-                <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" class="text-right">
-                    <a [routerLink]="['/authentication/forgot']" class="link">Forgot pwd?</a>
-                </div>
+               
                 <!-- col full-->
                 <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
-                    <input mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="submit" value="login"/>
+                    <input mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="submit" value="Register"/>
                 </div>
                 <!-- col full-->
                 <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" class="text-center">
-                    <span>Don't have an account?
-                        <a [routerLink]="['/register']" class="text-info link">Register</a>
+                    <span>You have an account?
+                        <a [routerLink]="['/login']" class="text-info link">Login</a>
                     </span>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { EndpointComponent } from '../endpoint/endpoint.component';
+
 import { GetComponent } from '../endpoint/get/get.component';
+import { EndpointComponent } from '../endpoint/post/endpoint.component';
 import { UserComponent } from '../user/user.component';
 
 

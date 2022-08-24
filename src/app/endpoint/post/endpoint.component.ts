@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MyserviceService } from '../service/myservice.service';
+import { MyserviceService } from 'src/app/service/myservice.service';
+
 
 @Component({
   selector: 'app-endpoint',
