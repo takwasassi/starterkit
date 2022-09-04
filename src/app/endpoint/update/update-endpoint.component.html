@@ -1,16 +1,22 @@
 <div> <h2 class="text-center">Update an Endpoint</h2></div>
 
 <div>
-  <form [formGroup]="putend"  >
+  <form [formGroup]="form"  (ngSubmit)="submit()">
+    <mat-dialog-content>
     <label for="fname">Path</label>
-    <input type="text" id="path" name="path" placeholder="Your path.." formControlName="path">
+    <input type="text" id="path" name="path" placeholder="Your path.." formControlName="path" >
 
     <label for="lname">Method</label>
-    <input type="text" id="method" name="method" placeholder="Your method.." formControlName="method">
+    <input type="text" id="method" name="method" placeholder="Your method.." formControlName="method" >
     <label for="country">Status code</label>
-    <input type="text" id="status_code" name="status_code" placeholder="status code.."formControlName="status_code">
-  
-    <input type="submit" value="Submit" (click)="updateEndPoint(endpoint.id)">
+    <input type="text" id="status_code" name="status_code" placeholder="status code.."formControlName="status_code" >
+    <label for="response_json">Response Json</label>
+    <input type="text" id="response_json" name="response_json" placeholder="response json.."formControlName="response_json" > 
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+      <button type="button" class="btn btn-danger" mat-dialog-close>Annuler</button>&nbsp;
+      <button type="submit" class="btn btn-success">Confirmer</button>
+  </mat-dialog-actions>
   </form>
 </div>
 

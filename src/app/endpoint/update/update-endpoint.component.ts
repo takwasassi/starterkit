@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { Router } from '@angular/router';
 import { Endpoint } from 'src/app/model/endpiont.model';
 import { MyserviceService } from 'src/app/service/myservice.service';
 
@@ -13,26 +13,34 @@ import { MyserviceService } from 'src/app/service/myservice.service';
 })
 export class UpdateEndpointComponent implements OnInit {
   endpoint:Endpoint= new Endpoint;
-  constructor(private service: MyserviceService, private routes: Router) { }
+  constructor(private service: MyserviceService,@Inject(MAT_DIALOG_DATA) private data: any,private thisDg : MatDialogRef<UpdateEndpointComponent>) { }
 
+  id!: number
+  form!: FormGroup
   ngOnInit(): void {
-    this.service.getEndpointById().subscribe(data=>{
-      this.endpoint = data;
-      console.log(this.endpoint)
+
+      this.id = this.data['data']['id']
+      this.form = new FormGroup({
+        path: new FormControl(this.data['data']['path']),
+        method: new FormControl(this.data['data']['method']),
+        status_code: new FormControl(this.data['data']['status_code']),
+        response_json: new FormControl(this.data['data']['response_json']),
 });
       
     
   }
-  updateEndPoint(id?: number ){
-    console.log(this.endpoint);
-    this.service.updateEndpointById(this.endpoint).subscribe();
-    this.routes.navigate(['/starter/getendpoint']);
+
+
+  submit(){
+   
+    this.service.getid(this.id);
+    console.log("id = ", this.id);
+       this.service.updateEndpointById(this.form.value,this.id).subscribe(()=>{
+       
+      this.thisDg.close();
+    })
   }
+
  
-  putend = new FormGroup({
-    path: new FormControl(''),
-    method: new FormControl(''),
-    status_code: new FormControl(''),
-  });
 
 }

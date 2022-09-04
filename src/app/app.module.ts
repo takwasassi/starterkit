@@ -37,6 +37,8 @@ import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateEndpointComponent } from './endpoint/update/update-endpoint.component';
 import { EndpointComponent } from './endpoint/post/endpoint.component';
+import { DeleteComponent } from './endpoint/delete/delete.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -69,6 +71,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     UserComponent,
     RegisterComponent,
     UpdateEndpointComponent,
+    DeleteComponent,
+    ProfileComponent,
     
     
   ],

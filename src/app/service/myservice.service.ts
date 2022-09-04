@@ -24,14 +24,14 @@ export class MyserviceService {
     return this.user.post<Object>(this.api+"/api/endpoints/",postend
   );
   }
-  id?: Number;
-  getid(getid?: Number){
+  id?: number;
+  getid(getid?: number){
     this.id = getid; 
   }
-  updateEndpointById(putend?: Endpoint): Observable<Object>{
-    return this.user.put<Object>(`${this.api}/api/endpoints/${this.id}`, putend);
+  updateEndpointById(putend?: any,id?: number): Observable<any>{
+    return this.user.put<any>(`${this.api}/api/endpoints/${id}`, putend);
+   
   }
-  
   getEndpoint() {
     return this.user.get<any>(this.api+"/api/endpoints");
   }
@@ -45,9 +45,23 @@ export class MyserviceService {
   listUser() {
     return this.user.get<any>(this.api+"/api/test/all"
   );
+  
   }
 
-  
+  token = localStorage.getItem('jwtToken') || '{}';
+
+  getUserDetails(): Observable<any> {
+
+    let headers = new HttpHeaders();
+    headers = headers.append('x-access-token', this.token)
+    
+    return this.user.get<any>(`${this.api}/api/test/user`,
+        {
+            headers: headers,
+        }
+    );
+}
+
 
 
 

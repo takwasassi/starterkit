@@ -37,6 +37,7 @@ export class EndpointComponent implements OnInit {
     path: new FormControl(''),
     method: new FormControl(''),
     status_code: new FormControl(''),
+    response_json: new FormControl(''),
   });
 
   ngOnInit(): void {

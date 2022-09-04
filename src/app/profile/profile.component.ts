@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Endpoint } from '../model/endpiont.model';
 import { User } from '../model/user.model';
 import { MyserviceService } from '../service/myservice.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss'],
   providers: [MyserviceService]
 })
-export class UserComponent implements OnInit {
+export class ProfileComponent implements OnInit {
+
   constructor(private service: MyserviceService, private routes: Router) { }
-  user= new User;
+  users= new User;
   ngOnInit(): void {
-    this.service.listUser().subscribe(
+    this.service.getUserDetails().subscribe(
       (response: any) => {
-        this.user=response
+        this.users=response.message
       
        
          //this.routes.navigate(['/starter/endpoint']);
-          console.log(this.user);
+          console.log(this.users);
       },
       (error) => {
         console.log(error);
       }
     );
   }
-  displayedColumns: string[] = ['username', 'email', 'createdAt','updatedAt'];
+
 }

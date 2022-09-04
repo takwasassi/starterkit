@@ -1,9 +1,9 @@
 export class Endpoint {
-    id?:number;
+    idEp?:number;
     path?:string;
     method?: string; 
     status_code?: number ; 
-   
+    response_json?: string; 
 
 
 
