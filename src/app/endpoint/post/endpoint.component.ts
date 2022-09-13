@@ -14,8 +14,9 @@ export class EndpointComponent implements OnInit {
 
   constructor(private service: MyserviceService, private routes: Router) { }
 
-
+  id!:any
   postEndpointC() {
+    this.userId.setValue(this.id);
     this.service.postEndpoint(this.postend.value).subscribe(
        (response: any) => {
          
@@ -31,16 +32,29 @@ export class EndpointComponent implements OnInit {
    }
 
 
-
+   userId=  new FormControl('')
 
   postend = new FormGroup({
     path: new FormControl(''),
     method: new FormControl(''),
     status_code: new FormControl(''),
     response_json: new FormControl(''),
+    userId:this.userId
+    
   });
+ 
+  
 
   ngOnInit(): void {
+    this.service.getUserDetails().subscribe(
+      (response: any) => {
+        this.id=response.id
+          console.log(this.id);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 }

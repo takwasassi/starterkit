@@ -4,6 +4,7 @@ export class Endpoint {
     method?: string; 
     status_code?: number ; 
     response_json?: string; 
+    userId?:number;
 
 
 

@@ -55,7 +55,7 @@ export class MyserviceService {
     let headers = new HttpHeaders();
     headers = headers.append('x-access-token', this.token)
     
-    return this.user.get<any>(`${this.api}/api/test/user`,
+    return this.user.get<any>(`${this.api}/*`,
         {
             headers: headers,
         }

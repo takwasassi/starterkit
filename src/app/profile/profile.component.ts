@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.service.getUserDetails().subscribe(
       (response: any) => {
-        this.users=response.message
+        this.users=response
       
        
          //this.routes.navigate(['/starter/endpoint']);

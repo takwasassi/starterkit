@@ -15,7 +15,7 @@ export class GetComponent implements OnInit {
   
   constructor(private service: MyserviceService, private routes: Router, private dg : MatDialog) { }
   endpoint= new Endpoint;
- 
+  id!:any
   getAllEndPoint(){
     this.service.getEndpoint().subscribe(
       (response: any) => {
@@ -32,6 +32,15 @@ export class GetComponent implements OnInit {
     
   }
   ngOnInit(): void {
+    this.service.getUserDetails().subscribe(
+      (response: any) => {
+        this.id=response.id
+          console.log(this.id);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
    this.getAllEndPoint();
   }
   displayedColumns: string[] = ['path', 'method', 'status_code','response_json', 'createdAt','updatedAt','update','delete'];
